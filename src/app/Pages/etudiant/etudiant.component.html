@@ -1,0 +1,51 @@
+<div class="card mt-5">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    Liste des Etudiants
+    <a [routerLink]="['/add']" class="btn btn-outline-success">
+      <i class="bi bi-plus-lg"></i> Ajouter
+    </a>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12 table-responsive">
+        <table class="table table-striped table-hover">
+          <thead class="table-light">
+            <tr>
+              <th>ID</th>
+              <th>Nom</th>
+              <th>Classe</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              @for (student of studentList; track $index) {
+              <td>{{ student.id }}</td>
+              <td>{{ student.name }}</td>
+              <td>{{ student.class }}</td>
+              <td>{{ student.email }}</td>
+              <td>
+                <a
+                  style="border: none"
+                  [routerLink]="['/edit', student.id]"
+                  class="btn btn-outline-primary btn-sm"
+                >
+                  <i class="bi bi-pencil-fill"></i>
+                </a>
+                <a
+                  style="border: none"
+                  [routerLink]="['/delete', student.id]"
+                  class="btn btn-outline-danger btn-sm"
+                >
+                  <i class="bi bi-trash-fill"></i>
+                </a>
+              </td>
+              }
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
