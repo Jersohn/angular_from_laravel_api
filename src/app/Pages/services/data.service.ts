@@ -13,4 +13,8 @@ export class DataService {
   getStudents(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+
+  addStudent(student: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, student);
+  }
 }
