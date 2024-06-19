@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class EtudiantComponent {
   studentList: any[] = [];
+
   http = inject(HttpClient);
   constructor(private dataservice: DataService) {}
   ngOnInit(): void {
@@ -21,5 +22,17 @@ export class EtudiantComponent {
     this.dataservice.getStudents().subscribe((res: any) => {
       this.studentList = res.message;
     });
+  }
+  deleteStudent(id: string) {
+    if (confirm('Êtes-vous sûr de vouloir supprimer cet étudiant ?')) {
+      this.dataservice.deleteStudent(id).subscribe(() => {
+        // Supprimez l'étudiant de la liste des étudiants
+        this.studentList = this.studentList.filter(
+          (student) => student.id !== id
+        );
+        // Affichez un message de succès
+        alert("L'étudiant a été supprimé avec succès.");
+      });
+    }
   }
 }

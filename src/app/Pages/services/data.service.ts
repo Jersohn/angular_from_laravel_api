@@ -17,4 +17,16 @@ export class DataService {
   addStudent(student: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, student);
   }
+
+  getStudent(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+
+  updateStudent(student: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${student.id}`, student);
+  }
+
+  deleteStudent(id: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+  }
 }

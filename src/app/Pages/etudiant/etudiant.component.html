@@ -21,21 +21,21 @@
           <tbody>
             @for (student of studentList; track $index) {
             <tr>
-              <td>{{ student.id }}</td>
+              <td>{{ $index + 1 }}</td>
               <td>{{ student.name }}</td>
               <td>{{ student.class }}</td>
               <td>{{ student.email }}</td>
               <td>
                 <a
                   style="border: none"
-                  [routerLink]="['/edit', student.id]"
+                  [routerLink]="['/etudiant-edit', student.id]"
                   class="btn btn-outline-primary btn-sm"
                 >
                   <i class="bi bi-pencil-fill"></i>
                 </a>
                 <a
                   style="border: none"
-                  [routerLink]="['/delete', student.id]"
+                  (click)="deleteStudent(student.id)"
                   class="btn btn-outline-danger btn-sm"
                 >
                   <i class="bi bi-trash-fill"></i>
