@@ -28,6 +28,13 @@
               <td>
                 <a
                   style="border: none"
+                  [routerLink]="['/etudiant-details', student.id]"
+                  class="btn btn-outline-success btn-sm"
+                >
+                  <i class="bi bi-eye detail-icon"></i>
+                </a>
+                <a
+                  style="border: none"
                   [routerLink]="['/etudiant-edit', student.id]"
                   class="btn btn-outline-primary btn-sm"
                 >

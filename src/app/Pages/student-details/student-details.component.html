@@ -1,0 +1,32 @@
+<div class="card mt-5">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h4 class="text-info">Liste des Etudiants</h4>
+    <a [routerLink]="['/etudiant-list']" class="btn btn-outline-info">
+      <i class="bi bi-arrow-left"></i>
+    </a>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12 table-responsive">
+        <table class="table table-striped table-hover">
+          <thead class="table-light">
+            <tr>
+              <th>Nom</th>
+              <th>Classe</th>
+              <th>Email</th>
+              <th>Date d'inscription</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ studentData.name }}</td>
+              <td>{{ studentData.class }}</td>
+              <td>{{ studentData.email }}</td>
+              <td>{{ studentData.created_at }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
